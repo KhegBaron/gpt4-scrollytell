@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 90th Percentile That Wasn't — GPT-4 and the Bar Exam</title>
+  <meta name="description" content="An interactive data essay on OpenAI's misleading 90th-percentile claim for GPT-4's bar exam performance. Sociology 77 · Assignment 1." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ================================================== -->
+  <!-- HERO                                               -->
+  <!-- ================================================== -->
+  <header class="hero">
+    <div class="hero__grid">
+      <div class="hero__meta">
+        <span class="eyebrow">Sociology 77 · Numbers, AI, and Society</span>
+        <span class="eyebrow eyebrow--muted">Assignment 1 · "Lies, Damned Lies, and Statistics"</span>
+      </div>
+
+      <h1 class="hero__title">
+        <span class="hero__line">The&nbsp;90th&nbsp;Percentile</span>
+        <span class="hero__line hero__line--italic">That&nbsp;Wasn't.</span>
+      </h1>
+
+      <p class="hero__dek">
+        How a single benchmark score became the defining statistic of the generative-AI boom, 
+        and what a careful reanalysis revealed about the authority of numbers in the age of machine intelligence.
+      </p>
+
+      <div class="hero__foot">
+        <span class="mono">Scroll</span>
+        <span class="hero__rule"></span>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ================================================== -->
+  <!-- ACT I — THE CLAIM                                   -->
+  <!-- ================================================== -->
+  <section class="act act--claim">
+    <div class="act__label">
+      <span class="chapter">Act I</span>
+      <span class="chapter-title">The Claim</span>
+    </div>
+
+    <div class="claim__grid">
+      <div class="claim__text">
+        <h2 class="h2">
+          In March 2023, OpenAI released a technical report.
+          One number did most of the work.
+        </h2>
+        <p class="lede">
+          Buried in an appendix about evaluations, OpenAI reported that its new model, GPT-4,
+          had scored in the <em>top 10%</em> of test-takers on the Uniform Bar Examination, 
+          the standardized test used to license lawyers in thirty-nine U.S. jurisdictions.
+        </p>
+        <p>
+          Within hours the figure was on the front page of the <em>New York Times</em>,
+          the <em>Wall Street Journal</em>, and Reuters. Within weeks it was cited by Sam Altman
+          in congressional testimony, used to justify multi-billion-dollar AI valuations,
+          and deployed by consulting firms to pitch workforce automation to law-firm partners.
+        </p>
+        <p>
+          It became shorthand for a very specific claim: that artificial intelligence had reached
+          elite human professional competence.
+        </p>
+      </div>
+
+      <aside class="claim__stat" data-animate="count-up">
+        <div class="statcard">
+          <span class="statcard__label">OpenAI's headline claim, March 2023</span>
+          <div class="statcard__bignum">
+            <span class="bignum" data-target="90">0</span><span class="bignum__unit">th</span>
+          </div>
+          <span class="statcard__suffix">percentile</span>
+          <p class="statcard__caption">
+            Uniform Bar Examination. Scaled score: 298&nbsp;/&nbsp;400. Source: <em>GPT-4 Technical Report</em> (OpenAI, 2023).
+          </p>
+        </div>
+        <blockquote class="pullquote">
+          "The benchmark did not just measure a model. It marketed one."
+        </blockquote>
+      </aside>
+    </div>
+  </section>
+
+
+  <!-- ================================================== -->
+  <!-- ACT II — THE SCROLLY VISUALIZATION                 -->
+  <!-- ================================================== -->
+  <section class="scrolly">
+
+    <div class="scrolly__intro">
+      <div class="act__label">
+        <span class="chapter">Act II</span>
+        <span class="chapter-title">The Reanalysis</span>
+      </div>
+      <h2 class="h2">
+        Eric Martínez asked a question OpenAI had not answered.
+      </h2>
+      <p class="lede">
+        In March 2024, an MIT researcher published a follow-up paper in
+        <em>Artificial Intelligence and Law</em>. It contained no new model, no secret benchmark.
+        It just asked a single, obvious question: <em>against whom, exactly, was GPT-4 scoring
+        in the 90th percentile?</em>
+      </p>
+      <p class="scrolly__hint mono">↓ Scroll to see how the number changes</p>
+    </div>
+
+    <div class="scrolly__wrap">
+
+      <!-- Sticky visualization -->
+      <div class="scrolly__sticky">
+        <div class="viz-container">
+          <div class="viz-header">
+            <span class="viz-eyebrow">FIGURE 1 · Uniform Bar Examination score distribution</span>
+            <h3 class="viz-title" id="viz-title">Against February 2023 test-takers</h3>
+            <p class="viz-subtitle" id="viz-subtitle">OpenAI's original comparison pool</p>
+          </div>
+          <svg id="chart" viewBox="0 0 800 440" preserveAspectRatio="xMidYMid meet" aria-label="Bar exam score distribution chart"></svg>
+          <div class="viz-legend" id="viz-legend"></div>
+        </div>
+      </div>
+
+      <!-- Step text -->
+      <div class="scrolly__steps">
+
+        <div class="step" data-step="1">
+          <div class="step__card">
+            <span class="step__number">01</span>
+            <h3 class="step__title">GPT-4 scored 298 out of 400.</h3>
+            <p>
+              That placed it in the <strong>90th percentile</strong> of February 2023 Illinois
+              Bar Exam test-takers, the comparison pool OpenAI used for its headline figure.
+              In a normal distribution of scores centered around 260, a score of 298 looks exceptional.
+            </p>
+          </div>
+        </div>
+
+        <div class="step" data-step="2">
+          <div class="step__card">
+            <span class="step__number">02</span>
+            <h3 class="step__title">But who takes the February exam?</h3>
+            <p>
+              The February administration is dominated by people who failed the July exam
+              and are retaking it. In February 2023 in Illinois, the pass rate was
+              <strong>62% for first-timers</strong> but only <strong>35% for repeat takers</strong> ,
+              and repeat takers made up the majority of the February pool.
+            </p>
+            <p>
+              The 90th percentile, in other words, was 90th percentile <em>of a lower-performing population</em>.
+            </p>
+          </div>
+        </div>
+
+        <div class="step" data-step="3">
+          <div class="step__card">
+            <span class="step__number">03</span>
+            <h3 class="step__title">Against first-time takers, the ranking drops.</h3>
+            <p>
+              When Martínez compared GPT-4's score against first-time test takers of the July exam, 
+              a broader, higher-scoring, more representative population — the percentile fell to
+              approximately <strong>62nd</strong>. Still above average, but nowhere near the top decile.
+            </p>
+          </div>
+        </div>
+
+        <div class="step" data-step="4">
+          <div class="step__card step__card--climax">
+            <span class="step__number">04</span>
+            <h3 class="step__title">Against lawyers who actually passed, it drops to the 48th percentile.</h3>
+            <p>
+              If you think the relevant comparison is not <em>"test-takers"</em> but
+              <em>"people capable of practicing law"</em>, then you exclude the failures and look only at those
+              who passed. Against this population, the one OpenAI's claim implicitly invoked, GPT-4 is
+              a <strong>below-median lawyer</strong>.
+            </p>
+            <p class="step__aside">
+              On the essay portion alone, against the same population: <strong>~15th percentile</strong>.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="scrolly__outro">
+      <p class="kicker">
+        The score was real. The arithmetic was correct. What was wrong was the
+        <em>comparison population</em> , and the comparison population was the entire claim.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ================================================== -->
+  <!-- ACT III — CONTEXT & TIMELINE                       -->
+  <!-- ================================================== -->
+  <section class="act act--timeline">
+    <div class="act__label">
+      <span class="chapter">Act III</span>
+      <span class="chapter-title">The Context</span>
+    </div>
+    <h2 class="h2">A statistic in motion.</h2>
+    <p class="lede">
+      Numbers do not travel alone. To understand how "90th percentile" shaped the public reception
+      of GPT-4 and the AI industry in 2023–2024, follow its career through thirteen months.
+    </p>
+
+    <ol class="timeline">
+      <li class="timeline__item" data-reveal>
+        <div class="timeline__year">MAR 2023</div>
+        <div class="timeline__body">
+          <h4>GPT-4 released.</h4>
+          <p>OpenAI's technical report claims GPT-4 scored in the top 10% of bar exam takers. Coverage in <em>NYT</em>, <em>WSJ</em>, Reuters, CNN, and the <em>Financial Times</em> within 24 hours.</p>
+        </div>
+      </li>
+      <li class="timeline__item" data-reveal>
+        <div class="timeline__year">MAY 2023</div>
+        <div class="timeline__body">
+          <h4>Sam Altman testifies before the Senate.</h4>
+          <p>Altman invokes GPT-4's exam performance as evidence that AI has reached capabilities requiring urgent regulatory attention, a framing that tends to favor established AI labs over potential competitors.</p>
+        </div>
+      </li>
+      <li class="timeline__item" data-reveal>
+        <div class="timeline__year">2023–24</div>
+        <div class="timeline__body">
+          <h4>The claim becomes common knowledge.</h4>
+          <p>The "top 10%" figure appears in investor decks, law-school faculty debates, consulting reports on legal automation, and congressional AI hearings, often without a citation at all.</p>
+        </div>
+      </li>
+      <li class="timeline__item" data-reveal>
+        <div class="timeline__year">MAR 2024</div>
+        <div class="timeline__body">
+          <h4>Martínez publishes the reanalysis.</h4>
+          <p>"Re-evaluating GPT-4's bar exam performance" appears in <em>Artificial Intelligence and Law</em>. Shows that against first-time takers GPT-4 is ~62nd percentile; against qualified attorneys, ~48th.</p>
+        </div>
+      </li>
+      <li class="timeline__item" data-reveal>
+        <div class="timeline__year">2024 &rarr;</div>
+        <div class="timeline__body">
+          <h4>The original claim continues to circulate.</h4>
+          <p>OpenAI has not issued a correction. The "90th percentile" figure continues to be cited in media, marketing, and policy. The reanalysis remains a footnote for most readers.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+
+  <!-- ================================================== -->
+  <!-- ACT IV — USE & BENEFICIARIES                       -->
+  <!-- ================================================== -->
+  <section class="act act--beneficiaries">
+    <div class="act__label">
+      <span class="chapter">Act IV</span>
+      <span class="chapter-title">Use &amp; Beneficiaries</span>
+    </div>
+    <h2 class="h2">A statistic does work. Who does it work for?</h2>
+
+    <div class="bene__grid">
+
+      <div class="bene__list">
+        <div class="bene__item" data-reveal>
+          <span class="bene__n">01</span>
+          <div>
+            <h4>Valuation anchoring.</h4>
+            <p>
+              OpenAI closed a tender offer in early 2024 at an ~$86 billion valuation.
+              "Human-level professional capability" was central to that case, and bar-exam performance was the retail-facing evidence.
+            </p>
+          </div>
+        </div>
+
+        <div class="bene__item" data-reveal>
+          <span class="bene__n">02</span>
+          <div>
+            <h4>Regulatory framing.</h4>
+            <p>
+              The claim that AI had reached advanced capabilities was used to argue for urgent government oversight, 
+              a frame that tends to raise compliance barriers for smaller labs and favor incumbents.
+            </p>
+          </div>
+        </div>
+
+        <div class="bene__item" data-reveal>
+          <span class="bene__n">03</span>
+          <div>
+            <h4>Labor-displacement narratives.</h4>
+            <p>
+              Consulting firms, legal-tech vendors, and management commentators cited the figure to pitch
+              workforce restructuring to corporate clients, without examining the underlying methodology.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bene__panel">
+        <div class="bene__panel-label">WHAT WAS CLAIMED, WHAT WAS TRUE</div>
+        <div class="bene__big">
+          <div class="bene__mega">
+            <span class="bene__mega-num">Top&nbsp;10%</span>
+            <span class="bene__mega-caption">How GPT-4 was characterized in thousands of news stories, pitch decks, and policy briefs.</span>
+          </div>
+          <div class="bene__divider"></div>
+          <div class="bene__mega bene__mega--accent">
+            <span class="bene__mega-num">48<sup>th</sup></span>
+            <span class="bene__mega-caption">GPT-4's percentile against lawyers who actually passed the bar exam, per Martínez (2024).</span>
+          </div>
+        </div>
+        <p class="bene__cite mono">Sources: Martínez, <em>Artif. Intell. Law</em> (2024); valuation reporting, <em>The Information</em>.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================== -->
+  <!-- ACT V — WHY IT'S MISLEADING                        -->
+  <!-- ================================================== -->
+  <section class="act act--mismatch">
+    <div class="act__label">
+      <span class="chapter">Act V</span>
+      <span class="chapter-title">Why It's Misleading</span>
+    </div>
+    <h2 class="h2">The number was real. The inference wasn't.</h2>
+    <p class="lede">Three category errors let one statistic do enormous rhetorical work.</p>
+
+    <div class="mismatch__grid">
+
+      <div class="mismatch" data-reveal>
+        <div class="mismatch__label">Comparison Pool</div>
+        <div class="mismatch__studied">
+          <span class="mismatch__head">Studied</span>
+          <p>February Illinois Bar Exam takers, a pool heavily weighted toward people who failed the July exam and are retaking.</p>
+        </div>
+        <div class="mismatch__arrow">↓ generalized to ↓</div>
+        <div class="mismatch__claimed">
+          <span class="mismatch__head">Claimed</span>
+          <p>"Test-takers" in general, implying competence comparable to practicing attorneys.</p>
+        </div>
+      </div>
+
+      <div class="mismatch" data-reveal>
+        <div class="mismatch__label">Task Ecology</div>
+        <div class="mismatch__studied">
+          <span class="mismatch__head">Studied</span>
+          <p>A timed, closed-environment exam with multiple-choice questions and short essays, graded against a rubric.</p>
+        </div>
+        <div class="mismatch__arrow">↓ generalized to ↓</div>
+        <div class="mismatch__claimed">
+          <span class="mismatch__head">Claimed</span>
+          <p>The cognitive and professional work of practicing law, with all its ambiguity, judgment, and stakes.</p>
+        </div>
+      </div>
+
+      <div class="mismatch" data-reveal>
+        <div class="mismatch__label">Measurement Standard</div>
+        <div class="mismatch__studied">
+          <span class="mismatch__head">Studied</span>
+          <p>A single scaled score on one administration of a standardized test, with no published methodology for the percentile conversion.</p>
+        </div>
+        <div class="mismatch__arrow">↓ generalized to ↓</div>
+        <div class="mismatch__claimed">
+          <span class="mismatch__head">Claimed</span>
+          <p>Human-level legal reasoning. Justification for $86B valuations, regulatory frameworks, and workforce displacement forecasts.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="mismatch__kicker">
+      The arithmetic was correct. The <em>population</em>, the <em>task</em>, and the <em>inference</em> were not.
+    </p>
+  </section>
+
+
+  <!-- ================================================== -->
+  <!-- ACT VI — SOCIOLOGICAL FRAME                        -->
+  <!-- ================================================== -->
+  <section class="act act--sociology">
+    <div class="act__label">
+      <span class="chapter">Act VI</span>
+      <span class="chapter-title">Sociological Frame</span>
+    </div>
+    <h2 class="h2">Why this is a case about numbers, not just about AI.</h2>
+
+    <div class="sociology__grid">
+
+      <article class="sociocard" data-reveal>
+        <div class="sociocard__tag">Quantification as Authority</div>
+        <h4 class="sociocard__who">Porter <span class="sociocard__year">(1995)</span></h4>
+        <p class="sociocard__work"><em>Trust in Numbers</em></p>
+        <p class="sociocard__body">
+          A percentile rank carries the institutional authority of standardized testing.
+          OpenAI did not need to argue that GPT-4 was intelligent. The number argued for them.
+        </p>
+      </article>
+
+      <article class="sociocard" data-reveal>
+        <div class="sociocard__tag">Benchmark as Social Fact</div>
+        <h4 class="sociocard__who">Durkheim <span class="sociocard__year">(1895)</span></h4>
+        <p class="sociocard__work"><em>Rules of Sociological Method</em></p>
+        <p class="sociocard__body">
+          "90th percentile" became an external, coercive belief shaping hiring decisions,
+          policy debates, and capital allocation, regardless of whether anyone
+          actually read the methodology behind it.
+        </p>
+      </article>
+
+      <article class="sociocard" data-reveal>
+        <div class="sociocard__tag">Who Designs the Test?</div>
+        <h4 class="sociocard__who">Kasy <span class="sociocard__year">(2025)</span></h4>
+        <p class="sociocard__work"><em>The Means of Prediction</em></p>
+        <p class="sociocard__body">
+          Benchmarks created and publicized by labs with a financial stake in the outcome
+          are not neutral measurements. They are governance instruments.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================== -->
+  <!-- FINALE — CONCLUSION                                 -->
+  <!-- ================================================== -->
+  <footer class="finale">
+    <div class="finale__inner">
+      <span class="eyebrow">Conclusion</span>
+      <h2 class="finale__title">
+        The most powerful numbers are <em>the ones no one checks.</em>
+      </h2>
+      <p class="finale__body">
+        A single percentile, reported without its comparison pool, published in a technical appendix,
+        repeated without scrutiny, traveled from a model card into congressional testimony, courtroom
+        arguments, and an $86 billion valuation. The reanalysis took one researcher, one afternoon,
+        and one spreadsheet. It has not caught up with the original claim, and in the attention economy
+        of 2023–2024, it never will.
+      </p>
+
+      <div class="finale__next">
+        <div class="finale__next-label">Where this goes next</div>
+
+        <div class="finale__nextitem">
+          <span class="finale__nextnum">Assignment 2</span>
+          <div>
+            <h4>Making New Facts.</h4>
+            <p>Reconstruct GPT-4's performance against qualified attorneys as the counter-fact, and examine how different measurement choices produce different public realities.</p>
+          </div>
+        </div>
+
+        <div class="finale__nextitem">
+          <span class="finale__nextnum">Assignment 3</span>
+          <div>
+            <h4>Design a Regulatory System.</h4>
+            <p>A benchmark-disclosure regime for AI capability claims: mandatory reporting of comparison populations, task definitions, and evaluation methodology before any public performance figure may be cited.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="finale__foot">
+        <span class="mono">Sociology 77 · Assignment 1 Showcase · Spring 2026</span>
+        <span class="mono">Built with D3.js &amp; handwritten HTML/CSS</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- D3 -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
